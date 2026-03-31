@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>✿ Petal Paint Studio ✿</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="cursorDot"></div>
+
+<header>
+  <div class="logo">
+    <span>🌸</span> Petal Paint
+  </div>
+
+  <div class="header-actions">
+    <button class="btn btn-ghost" onclick="newCanvas()">🗋 New</button>
+    <button class="btn btn-ghost" onclick="undo()">↩ Undo</button>
+    <button class="btn btn-ghost" onclick="redo()">↪ Redo</button>
+    <button class="btn btn-ghost" onclick="clearCanvas()">🗑 Clear</button>
+    <button class="btn btn-mint" onclick="saveImage('png')">💾 Save PNG</button>
+    <button class="btn btn-sky" onclick="saveImage('jpg')">📷 Save JPG</button>
+  </div>
+</header>
+
+<div class="app">
+
+  <!-- LEFT TOOLS -->
+  <div class="panel panel-left">
+    <div class="section-label">Tools</div>
+
+    <button class="tool-btn active" onclick="setTool('pencil')">✏️</button>
+    <button class="tool-btn" onclick="setTool('brush')">🖌️</button>
+    <button class="tool-btn" onclick="setTool('eraser')">🧹</button>
+  </div>
+
+  <!-- CANVAS -->
+  <div class="canvas-wrap">
+    <div class="canvas-frame">
+      <canvas id="mainCanvas" width="800" height="550"></canvas>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="panel panel-right">
+
+    <div class="section-label">Color</div>
+    <input type="color" id="colorPicker" value="#ff85a1" onchange="onColorChange(this.value)">
+
+    <div class="section-label">Brush</div>
+    <input type="range" id="sizeSlider" min="1" max="50" value="8"
+      oninput="brushSize=this.value">
+
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- JS -->
+<script src="script.js"></script>
+</body>
+</html>
